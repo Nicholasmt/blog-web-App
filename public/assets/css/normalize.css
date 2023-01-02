@@ -1,9 +1,22 @@
 .nav_icon
 {
-  font-size:25px;
+  font-size:23px;
   margin-left: 60%;
 }
+ 
 .logo
+{ 
+   margin-top: -4%;
+}
+.text_font
 {
-    margin-top: -10%;
+   font-size: 32px;
+}
+.social-icon
+{
+   color: black !important;
+}
+.post-text
+{
+    color: black;
 }

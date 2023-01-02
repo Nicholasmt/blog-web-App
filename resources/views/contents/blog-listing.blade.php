@@ -1,155 +1,77 @@
 @extends('layouts.body')
 @section('content')
-
 <div class="main-container section-padding">
 <div class="container">
- 
-<div id="list-view" class="tab-pane">
+<!-- list view Starts-->
+<div id="list-view" class="tab-pane mt-5">
 <div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
 <div class="featured-box">
 <figure>
-<span class="price-save">
-30% Save
-</span>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="assets/img/featured/img-1.jpg" alt=""></a>
+ <a href="#"><img class="img-fluid" src="{{ asset('assets/imgs/img-2.jpg')}}" height="280" width="500" alt=""></a>
 </figure>
 <div class="feature-content">
-<div class="product">
-<a href="#">Electronic > </a>
-<a href="#">Apple</a>
+<div class="post">
+<a href="#">Front-end . </a>
+<a href="#">1 Hour Ago</a>
 </div>
-<h4><a href="ads-details.html">Canon SX Powershot ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> John Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New York, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Apple</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+<h4><a href="{{ route('post-details')}}">Canon SX Powershot</a></h4>
+<p class="dsc">
+Not long ago I decided to improve the loading times of my website. It already loads pretty fast, but I knew there was still room for improvement and one of them was CSS loading. I will walk you through the process and show you how you can improve your load times as well.
+
+To see how CSS affects the load time of a webpage we first have to know how the browser converts an HTML document into a functional webpage...
+</p>
 <div class="listing-bottom">
-<h3 class="price float-left">$249.00</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+ <a href="{{ route('post-details')}}" class="float-right">Read Full <i class="lni-arrow-right"></i></a>
 </div>
 </div>
 </div>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+</div>
+</div>
+<!-- list view Ends  -->
+<!-- Grid view Starts-->
+<div id="grid-view" class="tab-pane mt-5">
+<div class="row">
+@foreach ($posts as $post)
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 <div class="featured-box">
 <figure>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="assets/img/featured/img-2.jpg" alt=""></a>
+ <a href="{{ route('post-details')}}"><img class="img-fluid" src="{{$post['jetpack_featured_media_url']}}" alt=""></a>
 </figure>
 <div class="feature-content">
-<div class="product">
-<a href="#">Electronic > </a>
-<a href="#">Apple</a>
+<div class="post">
+ @foreach ($post['primary_category'] as $category)
+   {{$category['name']}}  
+ @endforeach
+     
+{{$post['date'] }}
 </div>
-<h4><a href="ads-details.html">Apple Macbook Pro ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> John Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New York, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Apple</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+<h4><a href="{{ route('post-details')}}">Canon SX Powershot</a></h4>
+<p class="dsc">
+Not long ago I decided to improve the loading times of my website. It already loads pretty fast, but I knew there was still room for improvement and one of them was CSS loading. I will walk you through the process and show you how you can improve your load times as well.
+
+To see how CSS affects the load time of a webpage we first have to know how the browser converts an HTML document into a functional webpage...
+</p>
 <div class="listing-bottom">
-<h3 class="price float-left">$289.00</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+ <a href="#" class="float-right">Read Full <i class="lni-arrow-right mt-5"></i></a>
 </div>
 </div>
 </div>
 </div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-<div class="featured-box">
-<figure>
-<span class="price-save">
-30% Save
-</span>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="assets/img/featured/img-3.jpg" alt=""></a>
-</figure>
-<div class="feature-content">
-<div class="product">
-<a href="#">Electronic > </a>
-<a href="#">Apple</a>
-</div>
-<h4><a href="ads-details.html">Mercedes Benz E200 ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> John Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New York, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Apple</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-<div class="listing-bottom">
-<h3 class="price float-left">$199.80</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+@endforeach 
 </div>
 </div>
+<!-- Grid view Ends -->
+ 
+<section class="mt-5">
+<div class="text-center">
+<h4 class="text_font">Join our Team of Writers</h4>
+<p class="">On dasdas, writers earn a living doing what they love.</p>
+<p>Getting started is easy. Just pay a one time $25 fee and everything is ready to go.</p>
+<a href="#" class="btn btn-dark mt-4">JOIN US</a>
 </div>
-</div>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-<div class="featured-box">
-<figure>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="assets/img/featured/img-4.jpg" alt=""></a>
-</figure>
-<div class="feature-content">
-<div class="product">
-<a href="#">Electronic > </a>
-<a href="#">Apple</a>
-</div>
-<h4><a href="ads-details.html">Brown Leather Bag ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> John Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New York, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Apple</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-<div class="listing-bottom">
-<h3 class="price float-left">$206.90</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-</div>
-</div>
-</div>
- </div>
-</div>
-</div>
+</section>
 
 </div>
 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class BlogListingController extends Controller
 {
@@ -13,7 +14,14 @@ class BlogListingController extends Controller
      */
     public function index()
     {
-        return view('contents.blog-listing');
+        $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
+        // $data = Http::get('https://dummy.restapiexample.com/api/v1/employees');
+        $posts = json_decode($data, true);
+        // dd($posts);
+        
+        
+      
+        return view('contents.blog-listing',compact('posts'));
     }
 
     /**

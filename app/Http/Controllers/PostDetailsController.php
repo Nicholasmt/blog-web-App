@@ -13,7 +13,7 @@ class PostDetailsController extends Controller
      */
     public function index()
     {
-        //
+      return view('contents.post-details');
     }
 
     /**
