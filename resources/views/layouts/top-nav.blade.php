@@ -7,39 +7,25 @@
 <span class="lni-menu"></span>
 <span class="lni-menu"></span>
 </button>
-<a href="{{ route('index')}}" class="navbar-brand logo-margin"><img src="{{ asset('assets/imgs/favicon.png')}}" alt="logo"></a>
+<a href="{{ route('index')}}" class="navbar-brand logo"><img src="{{ asset('assets/imgs/favicon.png')}}" height="70" width="90" alt="logo"></a>
 </div>
 <div class="collapse navbar-collapse" id="main-navbar">
-<ul class="navbar-nav mr-auto w-100 justify-content-center">
+<ul class="navbar-nav mr-auto w-100 nav_icon justify-content-center">
 <li class="ml-5"> <a class="facebook" href="#"><i class="lni-twitter-filled"></i></a> </li>
 <li class="ml-5"> <a class="facebook" href="#"><i class="lni-facebook"></i></a> </li>
 <li class="ml-5"> <a class="facebook" href="#"><i class="lni-instagram"></i></a> </li>
 <li class="ml-5"> <a class="facebook" href="#"><i class="lni-github"></i></a> </li>
 </ul>
- 
-<div class="roof-social float-right">
- <!-- <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
- <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
- <a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
- <a class="github" href="#"><i class="lni-github-fill"></i></a> -->
-
 </div>
+<div class="post-btn">
  
 </div>
 </div>
 <ul class="mobile-menu">
-<li class="">
-<a class="facebook" href="#"><i class="lni-facebook-filled"></i></a>
-</li>
-<li class="">
-<a class="twitter" href="#"><i class="lni-twitter-filled"></i></a>
-</li> 
-<li class="">
-<a class="instagram" href="#"><i class="lni-instagram-filled"></i></a>
-</li>
-<li class="">
-<a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a>
-</li> 
+<li class=""><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
+<li class=""> <a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li> 
+<li class=""><a class="instagram" href="#"><i class="lni-instagram-filled"></i></a></li>
+<li class=""><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li> 
  
 <!-- <li>
 <a href="#">Pages</a>

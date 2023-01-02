@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/responsive.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/normalize.css')}}">
 <link rel="icon" href="{{ asset('assets/imgs/favicon.png')}}" type="image/x-icon">
 @section('header')
 @show
