@@ -24,7 +24,8 @@
 <h5 class="post-text">More Articles</h5>
 </div>
 <div class="row">
-@foreach ($posts as $post)
+@foreach ($posts->chunk(20) as $group)
+@foreach ($group as $post)
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 <div class="featured-box">
 <figure>
@@ -54,6 +55,7 @@ $content = strip_tags($post['content']['rendered'])
 </div>
 </div>
 </div>     
+@endforeach
 @endforeach
 </div>
 </div>

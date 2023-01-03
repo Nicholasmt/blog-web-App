@@ -5,7 +5,8 @@
 <!-- list view Starts-->
 <div id="list-view" class="tab-pane mt-5">
 <div class="row">
-@foreach ($posts as $post_content)
+@foreach ($posts->chunk(20) as $group)
+@foreach ($group as $post_content)
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
 <div class="featured-box">
 <figure>
@@ -32,13 +33,15 @@ $content = strip_tags($post_content['content']['rendered'])
 </div>
 @break
 @endforeach
+@endforeach
 </div>
 </div>
 <!-- list view Ends  -->
 <!-- Grid view Starts-->
 <div id="grid-view" class="tab-pane mt-5">
 <div class="row">
-@foreach ($posts as $post)
+@foreach ($posts->chunk(20) as $group)
+@foreach ($group as $post)
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 <div class="featured-box">
 <figure>
@@ -68,6 +71,7 @@ $content = strip_tags($post['content']['rendered'])
 </div>
 </div>
 @endforeach 
+@endforeach
 </div>
 <div class="justify-center">
     {{$posts->links()}}
