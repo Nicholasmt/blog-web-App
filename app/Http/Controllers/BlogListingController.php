@@ -15,12 +15,7 @@ class BlogListingController extends Controller
     public function index()
     {
         $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
-        // $data = Http::get('https://dummy.restapiexample.com/api/v1/employees');
-        $posts = json_decode($data, true);
-        // dd($posts);
-        
-        
-      
+        $posts = collect(json_decode($data, true))->paginate(6);
         return view('contents.blog-listing',compact('posts'));
     }
 
@@ -53,7 +48,7 @@ class BlogListingController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**

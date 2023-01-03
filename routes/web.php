@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [App\Http\Controllers\BlogListingController::class, 'index'])->name('index');
-Route::get('Post-Details', [App\Http\Controllers\PostDetailsController::class, 'index'])->name('post-details');
+Route::get('Post-Details/{id}', [App\Http\Controllers\PostDetailsController::class, 'show'])->name('post-details');

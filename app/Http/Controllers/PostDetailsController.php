@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
 
 class PostDetailsController extends Controller
 {
@@ -13,7 +15,7 @@ class PostDetailsController extends Controller
      */
     public function index()
     {
-      return view('contents.post-details');
+ 
     }
 
     /**
@@ -45,11 +47,17 @@ class PostDetailsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts/'.$id);
+        $post_detail = json_decode($data, true);
+
+         $data_2 = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
+        $posts = collect(json_decode($data_2, true))->paginate(3);
+        return view('contents.post-details',compact('post_detail','posts'));
     }
 
     /**
      * Show the form for editing the specified resource.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

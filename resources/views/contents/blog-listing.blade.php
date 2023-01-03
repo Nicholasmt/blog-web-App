@@ -5,28 +5,33 @@
 <!-- list view Starts-->
 <div id="list-view" class="tab-pane mt-5">
 <div class="row">
+@foreach ($posts as $post_content)
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 mt-5">
 <div class="featured-box">
 <figure>
- <a href="#"><img class="img-fluid" src="{{ asset('assets/imgs/img-2.jpg')}}" height="280" width="500" alt=""></a>
+ <a href="{{ route('post-details',$post_content['id'])}}"><img class="img-fluid" src="{{$post_content['jetpack_featured_media_url']}}" height="280" width="500" alt=""></a>
 </figure>
 <div class="feature-content">
 <div class="post">
-<a href="#">Front-end . </a>
-<a href="#">1 Hour Ago</a>
+{{$post_content['primary_category']['name']}}
+ {{$post_content['date']}}
 </div>
-<h4><a href="{{ route('post-details')}}">Canon SX Powershot</a></h4>
+<h4><a href="{{ route('post-details',$post_content['id'])}}">{!!$post_content['title']['rendered'] !!}</a></h4>
 <p class="dsc">
-Not long ago I decided to improve the loading times of my website. It already loads pretty fast, but I knew there was still room for improvement and one of them was CSS loading. I will walk you through the process and show you how you can improve your load times as well.
-
-To see how CSS affects the load time of a webpage we first have to know how the browser converts an HTML document into a functional webpage...
+<?php
+$content = strip_tags($post_content['content']['rendered'])
+?>
+ {!! substr($content,0,400) !!}  
+ @if (strlen($content) > 400)... <a href="{{ route('post-details',$post_content['id'])}}" class="">Read Full <i class="lni-arrow-right mt-5"></i></a>@endif
 </p>
 <div class="listing-bottom">
- <a href="{{ route('post-details')}}" class="float-right">Read Full <i class="lni-arrow-right"></i></a>
+ <a href="#" class="float-right">Read Full <i class="lni-arrow-right"></i></a>
 </div>
 </div>
 </div>
 </div>
+@break
+@endforeach
 </div>
 </div>
 <!-- list view Ends  -->
@@ -37,29 +42,35 @@ To see how CSS affects the load time of a webpage we first have to know how the 
 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 <div class="featured-box">
 <figure>
- <a href="{{ route('post-details')}}"><img class="img-fluid" src="{{$post['jetpack_featured_media_url']}}" alt=""></a>
+ <a href="{{ route('post-details',$post['id'])}}"><img class="img-fluid" src="{{$post['jetpack_featured_media_url']}}" alt=""></a>
 </figure>
 <div class="feature-content">
 <div class="post">
- @foreach ($post['primary_category'] as $category)
-   {{$category['name']}}  
- @endforeach
-     
-{{$post['date'] }}
+ {{$post['primary_category']['name']}}
+ {{$post['date']}}
 </div>
-<h4><a href="{{ route('post-details')}}">Canon SX Powershot</a></h4>
+<h4>
+<a href="{{ route('post-details',$post['id'])}}">
+{{$post['title']['rendered']}}  
+</a>
+</h4>
 <p class="dsc">
-Not long ago I decided to improve the loading times of my website. It already loads pretty fast, but I knew there was still room for improvement and one of them was CSS loading. I will walk you through the process and show you how you can improve your load times as well.
-
-To see how CSS affects the load time of a webpage we first have to know how the browser converts an HTML document into a functional webpage...
-</p>
+<?php
+$content = strip_tags($post['content']['rendered'])
+?>
+ {!! substr($content,0,200) !!}  
+ @if (strlen($content) > 200)... <a href="{{ route('post-details',$post['id'])}}" class="">Read Full <i class="lni-arrow-right mt-5"></i></a>@endif
+ </p>
 <div class="listing-bottom">
- <a href="#" class="float-right">Read Full <i class="lni-arrow-right mt-5"></i></a>
+<!-- <a href="{{ route('post-details',$post['id'])}}" class="float-right">Read Full <i class="lni-arrow-right mt-5"></i></a> -->
 </div>
 </div>
 </div>
 </div>
 @endforeach 
+</div>
+<div class="justify-content-center">
+    {{$posts->links()}}
 </div>
 </div>
 <!-- Grid view Ends -->
