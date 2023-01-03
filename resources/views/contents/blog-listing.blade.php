@@ -26,7 +26,7 @@ $content = strip_tags($post_content['content']['rendered'])
  @if (strlen($content) > 400)... <a href="{{ route('post-details',$post_content['id'])}}" class="">Read Full <i class="lni-arrow-right mt-5"></i></a>@endif
 </p>
 <div class="listing-bottom">
- <a href="#" class="float-right">Read Full <i class="lni-arrow-right"></i></a>
+ <!-- <a href="#" class="float-right">Read Full <i class="lni-arrow-right"></i></a> -->
 </div>
 </div>
 </div>
@@ -65,7 +65,7 @@ $content = strip_tags($post['content']['rendered'])
  @if (strlen($content) > 200)... <a href="{{ route('post-details',$post['id'])}}" class="">Read Full <i class="lni-arrow-right mt-5"></i></a>@endif
  </p>
 <div class="listing-bottom">
-<!-- <a href="{{ route('post-details',$post['id'])}}" class="float-right">Read Full <i class="lni-arrow-right mt-5"></i></a> -->
+ 
 </div>
 </div>
 </div>

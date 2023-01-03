@@ -6,7 +6,7 @@
 <!-- post details -->
 <div class="blog-post single-post mt-5 ml-5">
 <div class="meta card-body">
-<span class="meta-part mt-5"> By Ryan Jackson</span>
+<span class="meta-part mt-5">{{$post_detail['parselyMeta']['parsely-author'][0]}}</span>
 <h2 class="post-title"> {{$post_detail['title']['rendered']}} </h2>
 </div>
 <img class="img-fluid card-body" src="{{$post_detail['jetpack_featured_media_url']}}" height="280" width="500" alt="">

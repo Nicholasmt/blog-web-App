@@ -17,6 +17,7 @@ class BlogListingController extends Controller
         try
         {
             $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
+            // dd(json_decode($data, true));
             $posts = collect(json_decode($data, true))->paginate(6);
             return view('contents.blog-listing',compact('posts'));
         }
