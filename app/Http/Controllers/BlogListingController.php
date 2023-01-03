@@ -14,9 +14,16 @@ class BlogListingController extends Controller
      */
     public function index()
     {
-        $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
-        $posts = collect(json_decode($data, true))->paginate(6);
-        return view('contents.blog-listing',compact('posts'));
+        try
+        {
+            $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
+            $posts = collect(json_decode($data, true))->paginate(6);
+            return view('contents.blog-listing',compact('posts'));
+        }
+        catch( RequestException $ex)
+        {
+           abort(404,'Not Found');
+        }
     }
 
     /**

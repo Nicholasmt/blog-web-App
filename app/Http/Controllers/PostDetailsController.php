@@ -47,12 +47,18 @@ class PostDetailsController extends Controller
      */
     public function show($id)
     {
-        $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts/'.$id);
-        $post_detail = json_decode($data, true);
-
-        $data_2 = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
-        $posts = collect(json_decode($data_2, true))->random(3);
-        return view('contents.post-details',compact('post_detail','posts'));
+        try
+        {
+            $data = Http::get('https://techcrunch.com/wp-json/wp/v2/posts/'.$id);
+            $post_detail = json_decode($data, true);
+            $response = Http::get('https://techcrunch.com/wp-json/wp/v2/posts');
+            $posts = collect(json_decode($response, true))->random(3);
+            return view('contents.post-details',compact('post_detail','posts'));
+        }
+        catch(RequestException $ex)
+        {
+            abort(404,'Not Found!');
+        }
     }
 
     /**
