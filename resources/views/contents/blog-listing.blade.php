@@ -69,7 +69,7 @@ $content = strip_tags($post['content']['rendered'])
 </div>
 @endforeach 
 </div>
-<div class="justify-content-center">
+<div class="justify-center">
     {{$posts->links()}}
 </div>
 </div>
