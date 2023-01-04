@@ -14,8 +14,10 @@
 </figure>
 <div class="feature-content">
 <div class="post">
-{{$post_content['primary_category']['name']}}
- {{$post_content['date']}}
+{{$post_content['primary_category']['name']}} -
+<?php $dateformat = new DateTime($post_content['date']); ?>
+{{$dateformat->format('d')}} {{$dateformat->format('F')}} {{$dateformat->format('Y') }} 
+ <!-- {{$post_content['date']}} -->
 </div>
 <h4><a href="{{ route('post-details',$post_content['id'])}}">{!!$post_content['title']['rendered'] !!}</a></h4>
 <p class="dsc">
@@ -49,8 +51,10 @@ $content = strip_tags($post_content['content']['rendered'])
 </figure>
 <div class="feature-content">
 <div class="post">
- {{$post['primary_category']['name']}}
- {{$post['date']}}
+ {{$post['primary_category']['name']}} - 
+ <?php $dateformat = new DateTime($post['date']); ?>
+{{$dateformat->format('d')}} {{$dateformat->format('F')}} {{$dateformat->format('Y') }} 
+ <!-- {{$post['date']}} -->
 </div>
 <h4>
 <a href="{{ route('post-details',$post['id'])}}">

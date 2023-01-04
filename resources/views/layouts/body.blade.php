@@ -10,9 +10,9 @@
 <i class="lni-chevron-up"></i>
 </a> -->
 
-<!-- <div id="preloader">
+<div id="preloader">
 <div class="loader" id="loader-1"></div>
-</div> -->
+</div>
 
 <!-- scripts starts here -->
 <script src="{{ asset('assets/js/jquery-min.js')}}"></script>
